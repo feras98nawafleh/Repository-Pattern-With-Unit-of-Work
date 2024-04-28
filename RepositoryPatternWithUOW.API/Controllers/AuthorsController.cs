@@ -43,7 +43,7 @@ namespace RepositoryPatternWithUOW.API.Controllers
         public async Task<IActionResult> GetAuthorByName(string name)
         {
             //return Ok( await _authorsRepository.Find(a => a.FirstName.ToLower() == name.ToLower() || a.LastName.ToLower() == name.ToLower()));
-            return Ok( await _unitOfWork.Authors.Find(a => a.FirstName.ToLower() == name.ToLower() || a.LastName.ToLower() == name.ToLower()));
+            return Ok( await _unitOfWork.Authors.Find(a => a.FirstName.ToLower().Contains(name.ToLower()) || a.LastName.ToLower().Contains(name.ToLower())));
         }
     }
 }

@@ -15,10 +15,10 @@ namespace RepositoryPatternWithUOW.EF.Repositories
         {
             _context = context;
             Authors = new GenericRepository<Author>(_context);
-            Books = new GenericRepository<Book>(_context);
+            Books = new BooksRepository(_context);
         }
         public IGenericRepository<Author> Authors { get; private set; }
-        public IGenericRepository<Book> Books { get; private set; }
+        public IBooksRepository Books { get; private set; }
 
         public async Task<int> Commit()
         {

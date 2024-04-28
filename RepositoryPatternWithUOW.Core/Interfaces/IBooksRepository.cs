@@ -7,10 +7,8 @@ using System.Threading.Tasks;
 
 namespace RepositoryPatternWithUOW.Core.Interfaces
 {
-    public interface IUnitOfWork : IDisposable
+    public interface IBooksRepository : IGenericRepository<Book>
     {
-        IGenericRepository<Author> Authors { get; }
-        IBooksRepository Books { get; }
-        Task<int> Commit();
+        IEnumerable<Book> SpecialMethod();
     }
 }
