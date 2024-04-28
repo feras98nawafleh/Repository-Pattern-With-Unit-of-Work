@@ -21,7 +21,10 @@ namespace RepositoryPatternWithUOW.API
                 b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName))
             );
 
-            builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            //builder.Services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+
+            // Injecting UnitOfWork
+            builder.Services.AddTransient(typeof(IUnitOfWork), typeof(UnitOfWork));
 
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
